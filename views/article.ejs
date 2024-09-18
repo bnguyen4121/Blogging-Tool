@@ -1,0 +1,64 @@
+<!-- Article Header Section -->
+<header class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container">
+        <h1 class="fw-light"><%= article.title %></h1>
+        <p class="lead">Published on: <%= new Date(article.created_at).toLocaleDateString() %></p>
+    </div>
+</header>
+
+<!-- Article Content Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <p><%= article.content %></p>
+            <hr />
+            <h4>Article Information</h4>
+            <p id="views-count">Views: <%= article.views %></p>
+            <p id="likes-count">Likes: <%= article.likes %></p>
+            <button id="like-button" class="btn btn-success">Like</button>
+            <hr />
+            <h4>Comments</h4>
+            <% if (comments.length > 0) { %> <% comments.forEach(comment => { %>
+            <div class="comment mb-4">
+                <p class="mb-0"><strong><%= comment.commenter_name %></strong></p>
+                <p class="mb-0"><%= comment.content %></p>
+                <small>Posted on <%= new Date(comment.created_at).toLocaleDateString() %></small>
+            </div>
+            <% }) %> <% } else { %>
+            <p class="text-muted">No comments yet.</p>
+            <% } %>
+            <hr />
+            <h4>Add a Comment</h4>
+            <form action="/blog/add-comment/<%= article.article_id %>?noIncrement=true" method="POST">
+                <div class="mb-3">
+                    <label for="commenter_name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="commenter_name" name="commenter_name" required />
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Comment</label>
+                    <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
+
+            <a href="/blog/reader-home" class="btn btn-secondary mt-3">Back to Reader Home</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("like-button").addEventListener("click", () => {
+        fetch(`/blog/like-article/<%= article.article_id %>`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    document.getElementById("likes-count").textContent = `Likes: ${data.likes}`;
+                }
+            });
+    });
+</script>

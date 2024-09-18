@@ -1,0 +1,76 @@
+/* Define styles */
+.card-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+.card-clickable {
+    cursor: pointer;
+}
+.blockquote-footer {
+    margin-top: 10px;
+}
+
+/* Carousel arrow styles */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: blue;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-control-prev-icon {
+    background-image: none; /* Remove default icon */
+}
+
+.carousel-control-next-icon {
+    background-image: none; /* Remove default icon */
+}
+
+.carousel-control-prev-icon::after {
+    content: "\2039"; /* Unicode for left arrow */
+    font-size: 20px;
+    color: white;
+}
+
+.carousel-control-next-icon::after {
+    content: "\203A"; /* Unicode for right arrow */
+    font-size: 20px;
+    color: white;
+}
+
+/* Custom styles for Author Home */
+header {
+    background: linear-gradient(90deg, rgba(0, 123, 255, 1) 0%, rgba(0, 123, 255, 0.8) 100%);
+    color: white;
+}
+
+.list-group-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.list-group-item h5 {
+    font-weight: bold;
+}
+
+.list-group-item p {
+    color: #555;
+}
+
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+footer ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+

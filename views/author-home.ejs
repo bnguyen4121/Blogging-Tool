@@ -1,0 +1,106 @@
+<!-- Author Home Header Section -->
+<header class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container">
+        <h1 class="fw-light">Author Home</h1>
+        <p class="lead">Manage your articles and create new content</p>
+        <hr />
+        <h2 class="fw-light"><%= blogTitle %></h2>
+        <h3 class="fw-light">by <%= authorName %></h3>
+    </div>
+</header>
+
+<!-- Create New Draft Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a href="/blog/create-article" class="btn btn-primary btn-lg mb-4">Create New Draft</a>
+        </div>
+    </div>
+</section>
+
+<!-- Published Articles Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="mb-4">Published Articles</h2>
+            <div class="list-group">
+                <% if (publishedArticles.length > 0) { %> <% publishedArticles.forEach(article => { %>
+                <div class="list-group-item list-group-item-action mb-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= article.title %></h5>
+                        <small>Created: <%= new Date(article.created_at).toLocaleDateString() %></small>
+                        <small>Last updated: <%= new Date(article.updated_at).toLocaleDateString() %></small>
+                    </div>
+                    <p class="mb-1">
+                        <%= article.content ? article.content.substring(0, 100) : "No content available" %>...
+                    </p>
+                    <div class="d-flex w-100 justify-content-between">
+                        <div>
+                            <a href="/blog/edit-article/<%= article.article_id %>" class="btn btn-secondary btn-sm"
+                                >Edit</a
+                            >
+                            <form
+                                action="/blog/delete-article/<%= article.article_id %>"
+                                method="POST"
+                                class="d-inline">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                        <small>Published: Yes</small>
+                        <small>Reads: <%= article.views %></small>
+                        <small>Likes: <%= article.likes %></small>
+                    </div>
+                    <a href="/blog/article/<%= article.article_id %>" class="btn btn-info btn-sm mt-2">Share</a>
+                </div>
+                <% }) %> <% } else { %>
+                <p class="text-muted">You have no published articles yet. Create your first article now!</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Draft Articles Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="mb-4">Draft Articles</h2>
+            <div class="list-group">
+                <% if (draftArticles.length > 0) { %> <% draftArticles.forEach(article => { %>
+                <div class="list-group-item list-group-item-action mb-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= article.title %></h5>
+                        <small>Created: <%= new Date(article.created_at).toLocaleDateString() %></small>
+                        <small>Last updated: <%= new Date(article.updated_at).toLocaleDateString() %></small>
+                    </div>
+                    <p class="mb-1">
+                        <%= article.content ? article.content.substring(0, 100) : "No content available" %>...
+                    </p>
+                    <div class="d-flex w-100 justify-content-between">
+                        <div>
+                            <a href="/blog/edit-article/<%= article.article_id %>" class="btn btn-secondary btn-sm"
+                                >Edit</a
+                            >
+                            <form
+                                action="/blog/delete-article/<%= article.article_id %>"
+                                method="POST"
+                                class="d-inline">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                            <form
+                                action="/blog/publish-article/<%= article.article_id %>"
+                                method="POST"
+                                class="d-inline">
+                                <button class="btn btn-success btn-sm" type="submit">Publish</button>
+                            </form>
+                        </div>
+                        <small>Published: No</small>
+                    </div>
+                </div>
+                <% }) %> <% } else { %>
+                <p class="text-muted">You have no draft articles yet. Create your first article now!</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>

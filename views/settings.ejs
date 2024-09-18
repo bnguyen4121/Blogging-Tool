@@ -1,0 +1,39 @@
+<!-- Settings Header Section -->
+<header class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container">
+        <h1 class="fw-light">Settings</h1>
+        <p class="lead">Update your blog settings below.</p>
+    </div>
+</header>
+
+<!-- Settings Form Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <form action="/blog/update-settings" method="POST">
+                <div class="mb-3">
+                    <label for="blogTitle" class="form-label">Blog Title</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="blogTitle"
+                        name="blogTitle"
+                        value="<%= blogTitle %>"
+                        required />
+                </div>
+                <div class="mb-3">
+                    <label for="authorName" class="form-label">Author Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="authorName"
+                        name="authorName"
+                        value="<%= authorName %>"
+                        required />
+                </div>
+                <button type="submit" class="btn btn-primary">Update Settings</button>
+            </form>
+            <a href="/blog/author-home" class="btn btn-secondary mt-3">Back to Author Home</a>
+        </div>
+    </div>
+</section>

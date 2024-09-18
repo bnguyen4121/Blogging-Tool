@@ -1,0 +1,55 @@
+<!-- Reader Home Header Section -->
+<header class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container">
+        <h1 class="fw-light">Reader Home</h1>
+        <p class="lead"><%= blogTitle %> by <%= authorName %></p>
+    </div>
+</header>
+
+<!-- Filter by Tag Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <form action="/blog/reader-home" method="GET" class="mb-4">
+                <div class="input-group">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="tag"
+                        placeholder="Filter by tag"
+                        value="<%= tag || '' %>" />
+                    <button class="btn btn-primary" type="submit">Filter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Published Articles Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="mb-4">Published Articles</h2>
+            <div class="list-group">
+                <% if (articles.length > 0) { %> <% articles.forEach(article => { %>
+                <a href="/blog/article/<%= article.article_id %>" class="list-group-item list-group-item-action mb-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= article.title %></h5>
+                        <small>Published on <%= new Date(article.created_at).toLocaleDateString() %></small>
+                    </div>
+                    <p class="mb-1">
+                        <%= article.content ? article.content.substring(0, 100) : "No content available" %>...
+                    </p>
+                    <div>
+                        <% article.tags.forEach(tag => { %>
+                        <span class="badge bg-secondary"><%= tag %></span>
+                        <% }) %>
+                    </div>
+                </a>
+                <% }) %> <% } else { %>
+                <p class="text-muted">No published articles available.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>

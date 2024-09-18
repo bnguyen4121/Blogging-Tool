@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= title %></title>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous" />
+        <!-- Custom CSS -->
+        <link href="/main.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Hero Section -->
+        <header class="bg-primary text-white text-center py-5 mb-4">
+            <div class="container">
+                <h1 class="fw-light">Welcome to the Blogging Tool</h1>
+                <p class="lead">Navigate to the Author Home or Reader Home to get started.</p>
+            </div>
+        </header>
+
+        <!-- Features Section -->
+        <section class="container my-5">
+            <div class="row text-center">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow card-hover card-clickable" onclick="location.href='/blog/author-home'">
+                        <div class="card-body">
+                            <i class="bi bi-pencil-square display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Create Articles</h5>
+                            <p class="card-text">
+                                Easily create and manage your articles with our user-friendly interface.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow card-hover card-clickable" onclick="location.href='/blog/reader-home'">
+                        <div class="card-body">
+                            <i class="bi bi-eye display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Read and Interact</h5>
+                            <p class="card-text">Readers can view and interact with your content seamlessly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-light py-5">
+            <div class="container">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner text-center">
+                        <div class="carousel-item active">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">
+                                    "This blogging tool has revolutionized the way I write and share content. Highly
+                                    recommended!"
+                                </p>
+                                <footer class="blockquote-footer mt-2">Jane Doe</footer>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">
+                                    "The user interface is intuitive and easy to use. I love how simple it is to create
+                                    new articles."
+                                </p>
+                                <footer class="blockquote-footer mt-2">John Smith</footer>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">
+                                    "A fantastic tool for any writer. The ability to manage and publish articles
+                                    effortlessly is a game-changer."
+                                </p>
+                                <footer class="blockquote-footer mt-2">Emily Johnson</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#testimonialCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#testimonialCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="bg-primary text-white text-center py-5">
+            <div class="container">
+                <h2>Ready to start blogging?</h2>
+                <p class="lead">Sign up now and start creating amazing content today!</p>
+                <a class="btn btn-light btn-lg" href="/blog/author-home" role="button">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Bootstrap Icons -->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css"
+            rel="stylesheet" />
+    </body>
+</html>
