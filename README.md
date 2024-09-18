@@ -21,7 +21,7 @@ This is a simple web application that allows authors to create, edit, and manage
   - Simple and responsive design.
 
 ## Video Demo
-[Watch the demo on YouTube]()(https://www.youtube.com/example-url)
+[![Blogging Tool](https://img.youtube.com/vi/FBfl49-KHXs/0.jpg)](https://www.youtube.com/watch?v=FBfl49-KHXs)
 
 ## Technologies Used
 
